@@ -1,45 +1,18 @@
 import React from "react";
+import CounterContainer from "./components/counter/CounterContainer";
+import Search from "./components/form/Search";
+import Space from "./components/Space";
 import "./styles.css";
 
-class CounterContainer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      count: 1
-    };
-
-    this.onIncrement = this.onIncrement.bind(this);
-    this.onDecrement = this.onDecrement.bind(this);
-  }
-
-  onIncrement() {
-    this.setState((state) => ({ count: state.count + 1 }));
-  }
-
-  onDecrement() {
-    this.setState((state) => ({ count: state.count - 1 }));
-  }
-
-  render() {
-    return (
-      <CounterPresenter
-        count={this.state.count}
-        onIncrement={this.onIncrement}
-        onDecrement={this.onDecrement}
-      />
-    );
-  }
-}
-
-function CounterPresenter(props) {
+function App() {
   return (
-    <div>
-      <p>{props.count}</p>
-      <button onClick={props.onIncrement}>Increment</button>
-      <button onClick={props.onDecrement}>Decrement</button>
-    </div>
+    <main>
+      <h1>Road to Redux</h1>
+      <CounterContainer />
+      <Space />
+      <Search />
+    </main>
   );
 }
 
-export default CounterContainer;
+export default App;
