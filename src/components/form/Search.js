@@ -4,13 +4,24 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      query: ""
+    };
+
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(event) {
+    const { value } = event.target;
+
+    this.setState({ query: value });
   }
 
   onSubmit(event) {
-    const { value } = this.input;
+    const { query } = this.state;
 
-    console.log("Searched keyword: " + value);
+    console.log("Searched keyword: " + query);
 
     event.preventDefault();
   }
@@ -18,7 +29,7 @@ class Search extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input type="text" ref={(node) => (this.input = node)} />
+        <input type="text" onChange={this.onChange} />
         <button type="submit">Search</button>
       </form>
     );
