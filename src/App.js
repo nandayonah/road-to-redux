@@ -1,6 +1,6 @@
 import React from "react";
 import CounterContainer from "./components/counter/CounterContainer";
-import Search from "./components/form/Search";
+import SearchableList from "./components/form/SearchableList";
 import Space from "./components/Space";
 import "./styles.css";
 
@@ -10,7 +10,7 @@ function App() {
       <h1>Road to Redux</h1>
       <CounterContainer />
       <Space />
-      <Search />
+      <SearchableList />
     </main>
   );
 }
