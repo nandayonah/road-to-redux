@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-class Counter extends React.Component {
+class CounterContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,13 +23,23 @@ class Counter extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>{this.state.count}</p>
-        <button onClick={this.onIncrement}>Increment</button>
-        <button onClick={this.onDecrement}>Decrement</button>
-      </div>
+      <CounterPresenter
+        count={this.state.count}
+        onIncrement={this.onIncrement}
+        onDecrement={this.onDecrement}
+      />
     );
   }
 }
 
-export default Counter;
+function CounterPresenter(props) {
+  return (
+    <div>
+      <p>{props.count}</p>
+      <button onClick={props.onIncrement}>Increment</button>
+      <button onClick={props.onDecrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default CounterContainer;
