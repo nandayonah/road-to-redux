@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      query: ""
+      query: "React"
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -29,7 +29,7 @@ class Search extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input type="text" onChange={this.onChange} />
+        <input type="text" value={this.state.query} onChange={this.onChange} />
         <button type="submit">Search</button>
       </form>
     );
